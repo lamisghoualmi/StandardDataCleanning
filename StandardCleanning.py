@@ -45,7 +45,16 @@ pct_null = df.isnull().sum() / len(df)
 missing_features = pct_null[pct_null >= ThresholdMissVals].index
 df.drop(missing_features, axis=1, inplace=True)
 print('missing values removed, new data size:', df.shape)    
- 
+#-----------Automatically features with  var=0 -----------
+Sdev=df.var(axis=0)
+#hist = Sdev.hist()
+Sdev=Sdev.sort_values()
+NewSdev=Sdev[Sdev.values!=0]
+LabelsNonZero=NewSdev.index.values
+
+df1=df[LabelsNonZero]
+df=df1
+print('Constant features if there any are remove (Var(Feature-i=0)),  new df size:', df.shape) 
 #-------------For data with ordinal values---------------
 # ----------------- check missfield and spelling error-----------------
 OridinalValue=df.MARITAL_STATUS.unique()
