@@ -1,20 +1,33 @@
-# Standard Data Cleanning
-This file containd my basic data cleaning for all kind of data set. The data cleanning process include the following steps:
+# Standard Data Cleaning
 
-##### -Check columns names
-##### -Data Types for all variables 
-##### -clean variables names (remove space, correcte misspelling)
-##### -Removing duplicated samples
-##### -Check percentage of missing values for each variable
-##### -Removing variables with more than Threshold of missing values (Threshold is predefined depending on the data)
-##### -Remove features with low variance
--Based on the idea that features with low variance add little to no information for distinguishing individual samples and, therefore, are irrelevant
+This file contains a basic data cleaning pipeline that can be applied to a wide range of datasets. The data cleaning process includes the following steps:
 
-##### -Get the ordinale variables from the dataset
--check  for missfield and spelling error and correct them
+## Steps
 
-##### -Get the numeric data
- -Get the statistical description of the numeric variables in order to identify the suspected variables with outliers
- -Plot each suspected variables  to get a threshold and remove outliers
+- **Check column names**
 
+- **Inspect data types** for all variables
 
+- **Clean variable names**
+  - Remove spaces
+  - Correct misspellings
+
+- **Remove duplicate records**
+
+- **Calculate the percentage of missing values** for each variable
+
+- **Drop variables with excessive missing values**
+  - Remove variables with missing values exceeding a predefined threshold  
+  - The threshold is dataset-specific
+
+- **Remove features with low variance**
+  - Features with very low variance contribute little to distinguishing between samples and are often irrelevant
+
+- **Identify ordinal variables**
+  - Check for misspellings and inconsistent entries
+  - Standardize categories
+
+- **Isolate numeric variables**
+  - Generate descriptive statistics
+  - Identify potential outliers
+  - Visualize suspected variables to determine thresholds for outlier removal
